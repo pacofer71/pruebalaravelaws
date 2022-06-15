@@ -17,7 +17,7 @@ use App\Models\Post;
 
 Route::get('/', function () {
     $posts=Post::where('publicado', 1)->orderBy('id', 'desc')->paginate(5);
-    return view('welcome');
+    return view('welcome', compact('posts'));
 });
 
 Route::middleware([
